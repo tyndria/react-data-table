@@ -1,6 +1,7 @@
 {
   "name": "react-data-table",
   "version": "0.1.0",
+  "description": "See https://tyndria.github.io/react-data-table",
   "private": true,
   "homepage": "https://tyndria.github.io/react-data-table",
   "dependencies": {
