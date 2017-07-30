@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import fetchTableData from '../../actions/index';
+import { fetchTableData } from '../../actions/index';
 import TableList from "../../components/Table/TableList";
 
 class VisibleTable extends Component {

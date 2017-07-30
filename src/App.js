@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import store from './store/index';
 import VisibleTable from '../src/containers/VisibleTable/VisibleTable';
+import FilterPanel from '../src/containers/FilterPanel/FilterPanel';
 
 class App extends Component {
 	render() {
@@ -12,6 +13,7 @@ class App extends Component {
 					</div>
 					<div>
 						<VisibleTable/>
+						<FilterPanel/>
 					</div>
 				</div>
 			</Provider>

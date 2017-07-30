@@ -6,13 +6,23 @@ export default class TableList extends React.Component {
 		const data = this.props.data.records;
 		return (
 			<div className="table-container">
-				{
-					data.map((item, index) => {
-						return (
-							<TableItem item={item} key={index}/>
-						);
-					})
-				}
+				<table>
+					<tbody>
+						<tr>
+							<td>Musician</td>
+							<td>Song</td>
+							<td>Year</td>
+							<td>Genre</td>
+						</tr>
+						{
+							data.map((item, index) => {
+								return (
+									<TableItem item={item} key={index}/>
+								);
+							})
+						}
+					</tbody>
+				</table>
 			</div>
 		);
 	}

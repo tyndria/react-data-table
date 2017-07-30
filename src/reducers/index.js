@@ -1,9 +1,22 @@
-import {REQUEST_DATA, RECEIVE_DATA} from '../actions/constants';
+import {REQUEST_DATA, RECEIVE_DATA, RECEIVE_FILTERS} from '../actions/constants';
 
 const DEFAULT_STATE = {
 	recordList: {
 		isLoading: false,
-		records: []
+		records: [],
+		headers: ['musician', 'year', 'genre', 'song', 'album']
+	},
+	filters: {
+		genre: [],
+		musician: [],
+		year: [],
+		album: [],
+		selectedFilters: {
+			genre: null,
+			musician: null,
+			record: null,
+			album: null
+		}
 	}
 };
 
@@ -17,8 +30,18 @@ function tableDataReducer(state, action) {
 		case RECEIVE_DATA:
 			return {
 				isLoading: false,
-				records: action.payload
+				records: action.payload,
+				headers: DEFAULT_STATE.recordList.headers
 			};
+		default:
+			return state;
+	}
+}
+
+function filterPanelReducer(state, action) {
+	switch(action.type) {
+		case RECEIVE_FILTERS:
+			return action.payload;
 		default:
 			return state;
 	}
@@ -26,6 +49,7 @@ function tableDataReducer(state, action) {
 
 export default function rootReducer(state = DEFAULT_STATE, action) {
 	return {
-		recordList: tableDataReducer(state.recordList, action)
+		recordList: tableDataReducer(state.recordList, action),
+		filters: filterPanelReducer(state.filters, action)
 	};
 }

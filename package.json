@@ -2,7 +2,9 @@
   "name": "react-data-table",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://tyndria.github.io/react-data-table",
   "dependencies": {
+    "gh-pages": "^1.0.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-redux": "^5.0.5",
@@ -12,6 +14,8 @@
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build"
   },

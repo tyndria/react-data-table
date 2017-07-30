@@ -1,5 +1,6 @@
-import data from '../data/index.js';
-import {RECEIVE_DATA, REQUEST_DATA} from './constants';
+import { getData } from '../services/apiService';
+import {RECEIVE_DATA, REQUEST_DATA, RECEIVE_FILTERS} from './constants';
+import { reduceByKey } from '../services/actionService';
 
 function requestData() {
 	return {
@@ -14,14 +15,20 @@ function receiveData(data) {
 	}
 }
 
-export default function fetchTableData() {
-	return (dispatch) => {
+function receiveFilters(data) {
+	return  {
+		type: RECEIVE_FILTERS,
+		payload: data
+	}
+}
+
+export function fetchTableData() {
+	return (dispatch, getState) => {
 		dispatch(requestData());
-		return new Promise((resolve, reject) => {
-			setTimeout(() => {
-				resolve(data);
-			}, 1000);
-		}).then((data) => {
+		return getData().then((data) => {
+			dispatch(receiveData(data));
+			const filters = reduceByKey(getState().recordList.headers, data);
+			dispatch(receiveFilters(filters));
 			dispatch(receiveData(data));
 		});
 	}

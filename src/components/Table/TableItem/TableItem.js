@@ -3,11 +3,12 @@ class TableItem extends React.Component {
 	render() {
 		const item = this.props.item;
 		return (
-			<div className="list-item">
-				<h3 className="list-item-cell">
-					{item.musician.name}
-				</h3>
-			</div>
+			<tr className="list-item">
+				<td>{item.musician}</td>
+				<td>{item.song}</td>
+				<td>{item.year}</td>
+				<td>{item.genre}</td>
+			</tr>
 		);
 	}
 }
