@@ -9,6 +9,7 @@ class FilterPanel extends Component {
 		this.state = props.selectedFilters;
 		this.handleSubmit = this.handleSubmit.bind(this);
 		this.handleChange = this.handleChange.bind(this);
+		this.handleReset = this.handleReset.bind(this);
 	}
 
 	componentDidMount() {
@@ -18,6 +19,14 @@ class FilterPanel extends Component {
 	handleSubmit(event) {
 		this.props.selectFilters(this.state);
 		event.preventDefault();
+	}
+
+	handleReset(event) {
+		event.preventDefault();
+		this.setState(() => {
+			this.state = {};
+			this.props.selectFilters(this.state);
+		});
 	}
 
 	handleChange(event) {
@@ -31,7 +40,7 @@ class FilterPanel extends Component {
 		const headers = this.props.headers;
 		return (
 			<div>
-				<form onSubmit={this.handleSubmit}>
+				<form onSubmit={this.handleSubmit} onReset={this.handleReset}>
 					{
 						headers && headers.map((header, index) => {
 							return (<Select key={index}
@@ -43,6 +52,7 @@ class FilterPanel extends Component {
 						})
 					}
 					<input type="submit" value="Submit" />
+					<input type="reset" value="Reset" />
 				</form>
 			</div>
 		);
