@@ -21,8 +21,8 @@ class FilterPanel extends Component {
 	render() {
 		const filters = this.props.filters;
 		return (
-			<div>
-				<form onSubmit={this.handleSubmit}>
+			<div className="filter-panel">
+				<form className="form" onSubmit={this.handleSubmit}>
 					<Select label="Musician" options={filters.musician} name="musician"/>
 					<Select label="Year" options={filters.year} name="year"/>
 					<Select label="Album" options={filters.album} name="album"/>

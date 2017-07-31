@@ -5,7 +5,7 @@ class Select extends React.Component {
 		const options = this.props.options;
 		return (
 			<label>
-				{this.props.label}
+				<span className="label-text">{this.props.label}</span>
 				{
 					options.length > 0 &&
 					<select value={options[0]} onChange={this.props.handleChange}>

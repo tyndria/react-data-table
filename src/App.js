@@ -8,10 +8,10 @@ class App extends Component {
 	render() {
 		return (
 			<Provider store={store}>
-				<div className="content">
+				<div className="container">
 					<div className="header">
 					</div>
-					<div>
+					<div className="content">
 						<VisibleTable/>
 						<FilterPanel/>
 					</div>
