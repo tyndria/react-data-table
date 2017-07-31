@@ -1,6 +1,6 @@
 const records = [
 	{
-		musician: 'Oscar Peterson',
+		musician: 'AOscar Peterson',
 		album: 'Bossa Nova',
 		year: '1978',
 		song: 'When I was young',
@@ -21,14 +21,14 @@ const records = [
 		genre: 'Instrumental'
 	},
 	{
-		musician: 'Oscar Peterson',
+		musician: 'Bscar Peterson',
 		album: 'Bossa Nova',
 		year: '1978',
 		song: 'When I was young',
 		genre: 'Jazz'
 	},
 	{
-		musician: 'Oscar Peterson',
+		musician: 'Cscar Peterson',
 		album: 'Bossa Nova',
 		year: '1978',
 		song: 'When I was young',

@@ -5,7 +5,7 @@ class TableItem extends React.Component {
 		return (
 			<tr className="list-item">
 				<td>{item.musician}</td>
-				<td>{item.song}</td>
+				<td><i className="fa fa-play-circle-o"/> {item.song}</td>
 				<td>{item.year}</td>
 				<td>{item.genre}</td>
 			</tr>

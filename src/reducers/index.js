@@ -1,4 +1,12 @@
-import {REQUEST_DATA, RECEIVE_DATA, RECEIVE_FILTERS, SELECT_FILTERS} from '../actions/constants';
+import {
+	REQUEST_DATA,
+	RECEIVE_DATA,
+	RECEIVE_FILTERS,
+	SELECT_FILTERS,
+	RECEIVE_PAGINATION,
+	SELECT_PAGINATION,
+	SELECT_SORT
+} from '../actions/constants';
 
 const DEFAULT_STATE = {
 	recordList: {
@@ -17,6 +25,17 @@ const DEFAULT_STATE = {
 		musician: '',
 		record: '',
 		album: ''
+	},
+	pagination: {
+		dataChunks: [10, 20, 50]
+	},
+	selectedPagination: {
+		pageNumber: 1,
+		dataChunk: 10
+	},
+	selectedSort: {
+		key: 'musician',
+		sort: 'ASC'
 	}
 };
 
@@ -56,10 +75,40 @@ function selectedFiltersReducer(state, action) {
 	}
 }
 
+function paginationReduce(state, action) {
+	switch(action.type) {
+		case RECEIVE_PAGINATION:
+			return action.payload;
+		default:
+			return state;
+	}
+}
+
+function selectedPaginationReduce(state, action) {
+	switch(action.type) {
+		case SELECT_PAGINATION:
+			return action.payload;
+		default:
+			return state;
+	}
+}
+
+function selectedSortReducer(state, action) {
+	switch(action.type) {
+		case SELECT_SORT:
+			return action.payload;
+		default:
+			return state;
+	}
+}
+
 export default function rootReducer(state = DEFAULT_STATE, action) {
 	return {
 		recordList: tableDataReducer(state.recordList, action),
 		filters: filtersReducer(state.filters, action),
-		selectedFilters: selectedFiltersReducer(state.selectedFilters, action)
+		selectedFilters: selectedFiltersReducer(state.selectedFilters, action),
+		pagination: paginationReduce(state.pagination, action),
+		selectedPagination: selectedPaginationReduce(state.selectedPagination, action),
+		selectedSort: selectedSortReducer(state.selectedSort, action)
 	};
 }

@@ -9,10 +9,10 @@ export default class TableList extends React.Component {
 				<table>
 					<tbody>
 						<tr>
-							<th>Musician</th>
-							<th>Song</th>
-							<th>Year</th>
-							<th>Genre</th>
+							<th>Musician <button onClick={this.props.onSortChange} value="musician"><i className="fa fa-sort"/></button></th>
+							<th>Song <button onClick={this.props.onSortChange} value="song"><i className="fa fa-sort"/></button></th>
+							<th>Year <button onClick={this.props.onSortChange} value="year"><i className="fa fa-sort"/></button></th>
+							<th>Genre <button onClick={this.props.onSortChange} value="genre"><i className="fa fa-sort"/></button></th>
 						</tr>
 						{
 							data.map((item, index) => {

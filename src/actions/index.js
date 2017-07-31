@@ -1,5 +1,5 @@
-import { getData, filterData } from '../services/apiService';
-import {RECEIVE_DATA, REQUEST_DATA, RECEIVE_FILTERS, SELECT_FILTERS} from './constants';
+import { getData, transformData } from '../services/apiService';
+import {RECEIVE_DATA, REQUEST_DATA, RECEIVE_FILTERS, SELECT_FILTERS, SELECT_PAGINATION, SELECT_SORT} from './constants';
 import { reduceByKey } from '../services/actionService';
 
 function requestData() {
@@ -29,6 +29,20 @@ export function selectFilters(data) {
 	}
 }
 
+export function selectPagination(data) {
+	return {
+		type: SELECT_PAGINATION,
+		payload: data
+	}
+}
+
+export function selectSort(data) {
+	return {
+		type: SELECT_SORT,
+		payload: data
+	}
+}
+
 export function fetchTableData() {
 	return (dispatch, getState) => {
 		dispatch(requestData());
@@ -38,8 +52,8 @@ export function fetchTableData() {
 			const filters = reduceByKey(getState().recordList.headers, data);
 			dispatch(receiveFilters(filters));
 
-			const {selectedFilters} = getState();
-			dispatch(receiveData(filterData(data, selectedFilters)));
+			const {selectedFilters, selectedPagination, selectedSort} = getState();
+			dispatch(receiveData(transformData(data, selectedFilters, selectedPagination, selectedSort)));
 		});
 	}
 }
