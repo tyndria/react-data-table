@@ -1,5 +1,5 @@
-import { getData } from '../services/apiService';
-import {RECEIVE_DATA, REQUEST_DATA, RECEIVE_FILTERS} from './constants';
+import { getData, filterData } from '../services/apiService';
+import {RECEIVE_DATA, REQUEST_DATA, RECEIVE_FILTERS, SELECT_FILTERS} from './constants';
 import { reduceByKey } from '../services/actionService';
 
 function requestData() {
@@ -22,14 +22,24 @@ function receiveFilters(data) {
 	}
 }
 
+export function selectFilters(data) {
+	return  {
+		type: SELECT_FILTERS,
+		payload: data
+	}
+}
+
 export function fetchTableData() {
 	return (dispatch, getState) => {
 		dispatch(requestData());
 		return getData().then((data) => {
 			dispatch(receiveData(data));
+
 			const filters = reduceByKey(getState().recordList.headers, data);
 			dispatch(receiveFilters(filters));
-			dispatch(receiveData(data));
+
+			const {selectedFilters} = getState();
+			dispatch(receiveData(filterData(data, selectedFilters)));
 		});
 	}
 }

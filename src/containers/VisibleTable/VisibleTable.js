@@ -8,6 +8,15 @@ class VisibleTable extends Component {
 		this.props.fetchTableData();
 	}
 
+	componentWillReceiveProps(nextProps) {
+		const currentSelectedFilters = this.props.selectedFilters;
+		const nextSelectedFilters = nextProps.selectedFilters;
+
+		if (currentSelectedFilters !== nextSelectedFilters) {
+			this.props.fetchTableData();
+		}
+	}
+
 	render() {
 		const data = this.props.recordList;
 		return (
@@ -19,7 +28,8 @@ class VisibleTable extends Component {
 }
 
 const mapStateToProps = state => ({
-	recordList: state.recordList
+	recordList: state.recordList,
+	selectedFilters: state.selectedFilters
 });
 
 const mapDispatchToProps = dispatch => {

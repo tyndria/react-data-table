@@ -7,8 +7,10 @@ class Select extends React.Component {
 			<label>
 				{this.props.label}
 				{
-					options.length > 0 &&
-					<select value={options[0]} onChange={this.props.handleChange}>
+					options && options.length > 0 &&
+					<select value={this.props.value}
+							name={this.props.name}
+							onChange={this.props.handleChange}>
 						{options.map((option, index) => {
 							return (<option value={option} key={index}>{option}</option>)
 						})}
