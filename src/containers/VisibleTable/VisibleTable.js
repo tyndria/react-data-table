@@ -20,7 +20,7 @@ class VisibleTable extends Component {
 	render() {
 		const data = this.props.recordList;
 		return (
-			<div>
+			<div className="table">
 				<TableList data={data}/>
 			</div>
 		)

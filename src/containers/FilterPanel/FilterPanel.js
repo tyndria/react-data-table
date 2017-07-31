@@ -39,7 +39,7 @@ class FilterPanel extends Component {
 		const filters = this.props.filters;
 		const headers = this.props.headers;
 		return (
-			<div>
+			<div className="filter-panel">
 				<form onSubmit={this.handleSubmit} onReset={this.handleReset}>
 					{
 						headers && headers.map((header, index) => {
