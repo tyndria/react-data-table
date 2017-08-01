@@ -1,78 +1,13 @@
-html, body, .root, .container {
+html, body, .container {
+  display: inline-block;
   height: 100%;
-  display: block;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-
-  background-image: url('./wallpapper.jpg');
-}
-
-.content {
-  justify-content: center;
-  display: flex;
-  margin: 2rem;
-}
-
-.table {
-  min-height: 50%;
-  flex: 1;
-  padding: 2rem;
-  background-color: rgba(221, 221, 221, 0.7);
-}
-
-.filter-panel {
-  margin: 2rem;
-  width: 25%;
-}
-
-.filter-panel form {
-  display: flex;
-  flex-direction: column;
-  padding: 1rem;
-  border: 1px solid black;
-}
-
-form label {
-  margin: 1rem 0;
-}
-
-label .label-text {
-  padding: 0.5rem;
-}
-
-table {
-  border-collapse: collapse;
   width: 100%;
 }
 
-td, th {
-  border-bottom: 1px solid rgba(121, 114, 114, 0.36);
-  text-align: left;
-  padding: 8px;
+body {
+  background-image: url('img/wallpapper.jpg');
   font-family: sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
-tr:nth-child(even) {
-  background-color: rgba(122, 141, 152, 0.39);
-}
-
-.pagination {
-  display: flex;
-  justify-content: space-between;
-  margin: 1rem 0;
-}
-
-.pagination .page-chunk-container, .navigation-container {
-  display: inline-block;
-}
-
-.pagination .page-chunk-container a, .navigation-container a {
-  color: black;
-  float: left;
-  padding: 0.5rem 1rem;
-  text-decoration: none;
-}

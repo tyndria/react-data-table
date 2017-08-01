@@ -13,7 +13,7 @@ const DEFAULT_STATE = {
 	recordList: {
 		isLoading: false,
 		records: [],
-		headers: ['musician', 'year', 'genre', 'song', 'album']
+		headers: ['musician', 'song', 'year', 'genre']
 	},
 	filters: {
 		genre: [],

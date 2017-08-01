@@ -1,0 +1,21 @@
+@import 'variables.scss';
+
+.content {
+  display: flex;
+  height: calc(100% - 4rem);
+  justify-content: center;
+  margin: 2rem;
+}
+
+.table-container {
+  background-color: $panel-background-color;
+  flex: 1;
+  padding: 2rem;
+}
+
+.header {
+  display: inline-block;
+  font-size: 1.5rem;
+  font-weight: bold;
+  padding: 1rem;
+}

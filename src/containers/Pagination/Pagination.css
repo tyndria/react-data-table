@@ -1,0 +1,14 @@
+.pagination {
+  align-items: flex-end;
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem 0; }
+  .pagination .page-chunk-container,
+  .pagination .navigation-container {
+    display: inline-block; }
+    .pagination .page-chunk-container a,
+    .pagination .navigation-container a {
+      color: black;
+      float: left;
+      padding: 0.5rem 1rem;
+      text-decoration: none; }

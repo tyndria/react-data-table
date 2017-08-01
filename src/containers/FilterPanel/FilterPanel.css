@@ -1,0 +1,20 @@
+.filter-panel {
+  margin: 0 2rem;
+  width: 25%; }
+  .filter-panel form {
+    background-color: rgba(221, 221, 221, 0.7);
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem; }
+  .filter-panel label {
+    margin: 1rem 0; }
+    .filter-panel label .label-text {
+      padding: 0.5rem;
+      font-weight: bold; }
+  .filter-panel .action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    padding-right: 2rem; }
+    .filter-panel .action-buttons input {
+      margin-left: 0.5rem; }

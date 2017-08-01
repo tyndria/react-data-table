@@ -1,0 +1,33 @@
+@import '../../variables.scss';
+
+.filter-panel {
+  margin: 0 2rem;
+  width: 25%;
+
+  form {
+    background-color: $panel-background-color;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+  }
+
+  label {
+    margin: 1rem 0;
+
+    .label-text {
+      padding: 0.5rem;
+      font-weight: bold;
+    }
+  }
+
+  .action-buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 2rem;
+    padding-right: 2rem;
+
+    input {
+      margin-left: 0.5rem;
+    }
+  }
+}

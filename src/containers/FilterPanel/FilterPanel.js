@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { selectFilters } from '../../actions/index';
+import './FilterPanel.css';
 import Select from '../../components/Select/Select';
 
 class FilterPanel extends Component {
@@ -12,8 +13,8 @@ class FilterPanel extends Component {
 		this.handleReset = this.handleReset.bind(this);
 	}
 
-	componentDidMount() {
-		this.setState(this.props.selectedFilters);
+	componentWillReceiveProps(nextProps) {
+		this.setState(nextProps.selectedFilters);
 	}
 
 	handleSubmit(event) {
@@ -22,11 +23,16 @@ class FilterPanel extends Component {
 	}
 
 	handleReset(event) {
-		event.preventDefault();
 		this.setState(() => {
-			this.state = {};
+			this.state = {
+				song: '',
+				year: '',
+				musician: '',
+				genre: ''
+			};
 			this.props.selectFilters(this.state);
 		});
+		event.preventDefault();
 	}
 
 	handleChange(event) {
@@ -41,6 +47,7 @@ class FilterPanel extends Component {
 		return (
 			<div className="filter-panel">
 				<form onSubmit={this.handleSubmit} onReset={this.handleReset}>
+					<span className="header">Filters</span>
 					{
 						headers && headers.map((header, index) => {
 							return (<Select key={index}
@@ -51,8 +58,10 @@ class FilterPanel extends Component {
 											handleChange={this.handleChange}/>)
 						})
 					}
-					<input type="submit" value="Submit" />
-					<input type="reset" value="Reset" />
+					<div className="action-buttons">
+						<input type="reset" value="Reset" />
+						<input type="submit" value="Submit" />
+					</div>
 				</form>
 			</div>
 		);
@@ -62,7 +71,8 @@ class FilterPanel extends Component {
 const mapStateToProps = state => ({
 	filters: state.filters,
 	selectedFilters: state.selectedFilters,
-	headers: state.recordList.headers
+	headers: state.recordList.headers,
+	isLoading: state.recordList.isLoading
 });
 
 const mapDispatchToProps = dispatch => {
