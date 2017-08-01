@@ -1,6 +1,6 @@
 const records = [
 	{
-		musician: 'AOscar Peterson',
+		musician: 'Ascar Peterson',
 		album: 'Bossa Nova',
 		year: '1978',
 		song: 'When I was young',
@@ -35,7 +35,70 @@ const records = [
 		genre: 'Jazz'
 	},
 	{
-		musician: 'Oscar Peterson',
+		musician: 'Iscar Peterson',
+		album: 'Bossa Nova',
+		year: '1978',
+		song: 'When I was young',
+		genre: 'Jazz'
+	},
+	{
+		musician: 'Fscar Peterson',
+		album: 'Bossa Nova',
+		year: '1978',
+		song: 'When I was young',
+		genre: 'Jazz'
+	},
+	{
+		musician: 'Gscar Peterson',
+		album: 'Bossa Nova',
+		year: '1978',
+		song: 'When I was young',
+		genre: 'Jazz'
+	},
+	{
+		musician: 'Hscar Peterson',
+		album: 'Bossa Nova',
+		year: '1978',
+		song: 'When I was young',
+		genre: 'Jazz'
+	},
+	{
+		musician: 'Iscar Peterson',
+		album: 'Bossa Nova',
+		year: '1978',
+		song: 'When I was young',
+		genre: 'Jazz'
+	},
+	{
+		musician: 'Jscar Peterson',
+		album: 'Bossa Nova',
+		year: '1978',
+		song: 'When I was young',
+		genre: 'Jazz'
+	},
+	{
+		musician: 'Kscar Peterson',
+		album: 'Bossa Nova',
+		year: '1978',
+		song: 'When I was young',
+		genre: 'Jazz'
+	},
+	{
+		musician: 'Lscar Peterson',
+		album: 'Bossa Nova',
+		year: '1978',
+		song: 'When I was young',
+		genre: 'Jazz'
+	},
+	{
+		musician: 'Mscar Peterson',
+		album: 'Bossa Nova',
+		year: '1978',
+		song: 'When I was young',
+		genre: 'Jazz'
+	},
+	{
+		musician: 'Nscar Peterson',
 		album: 'Bossa Nova',
 		year: '1978',
 		song: 'When I was young',
@@ -49,133 +112,70 @@ const records = [
 		genre: 'Jazz'
 	},
 	{
-		musician: 'Oscar Peterson',
+		musician: 'Pscar Peterson',
 		album: 'Bossa Nova',
 		year: '1978',
 		song: 'When I was young',
 		genre: 'Jazz'
 	},
 	{
-		musician: 'Oscar Peterson',
+		musician: 'Qscar Peterson',
 		album: 'Bossa Nova',
 		year: '1978',
 		song: 'When I was young',
 		genre: 'Jazz'
 	},
 	{
-		musician: 'Oscar Peterson',
+		musician: 'Rscar Peterson',
 		album: 'Bossa Nova',
 		year: '1978',
 		song: 'When I was young',
 		genre: 'Jazz'
 	},
 	{
-		musician: 'Oscar Peterson',
+		musician: 'Sscar Peterson',
 		album: 'Bossa Nova',
 		year: '1978',
 		song: 'When I was young',
 		genre: 'Jazz'
 	},
 	{
-		musician: 'Oscar Peterson',
+		musician: 'Tscar Peterson',
 		album: 'Bossa Nova',
 		year: '1978',
 		song: 'When I was young',
 		genre: 'Jazz'
 	},
 	{
-		musician: 'Oscar Peterson',
+		musician: 'Uscar Peterson',
 		album: 'Bossa Nova',
 		year: '1978',
 		song: 'When I was young',
 		genre: 'Jazz'
 	},
 	{
-		musician: 'Oscar Peterson',
+		musician: 'Vscar Peterson',
 		album: 'Bossa Nova',
 		year: '1978',
 		song: 'When I was young',
 		genre: 'Jazz'
 	},
 	{
-		musician: 'Oscar Peterson',
+		musician: 'Xscar Peterson',
 		album: 'Bossa Nova',
 		year: '1978',
 		song: 'When I was young',
 		genre: 'Jazz'
 	},
 	{
-		musician: 'Oscar Peterson',
+		musician: 'Yscar Peterson',
 		album: 'Bossa Nova',
 		year: '1978',
 		song: 'When I was young',
 		genre: 'Jazz'
 	},
 	{
-		musician: 'Oscar Peterson',
-		album: 'Bossa Nova',
-		year: '1978',
-		song: 'When I was young',
-		genre: 'Jazz'
-	},
-	{
-		musician: 'Oscar Peterson',
-		album: 'Bossa Nova',
-		year: '1978',
-		song: 'When I was young',
-		genre: 'Jazz'
-	},
-	{
-		musician: 'Oscar Peterson',
-		album: 'Bossa Nova',
-		year: '1978',
-		song: 'When I was young',
-		genre: 'Jazz'
-	},
-	{
-		musician: 'Oscar Peterson',
-		album: 'Bossa Nova',
-		year: '1978',
-		song: 'When I was young',
-		genre: 'Jazz'
-	},
-	{
-		musician: 'Oscar Peterson',
-		album: 'Bossa Nova',
-		year: '1978',
-		song: 'When I was young',
-		genre: 'Jazz'
-	},
-	{
-		musician: 'Oscar Peterson',
-		album: 'Bossa Nova',
-		year: '1978',
-		song: 'When I was young',
-		genre: 'Jazz'
-	},
-	{
-		musician: 'Oscar Peterson',
-		album: 'Bossa Nova',
-		year: '1978',
-		song: 'When I was young',
-		genre: 'Jazz'
-	},
-	{
-		musician: 'Oscar Peterson',
-		album: 'Bossa Nova',
-		year: '1978',
-		song: 'When I was young',
-		genre: 'Jazz'
-	},
-	{
-		musician: 'Oscar Peterson',
-		album: 'Bossa Nova',
-		year: '1978',
-		song: 'When I was young',
-		genre: 'Jazz'
-	},
-	{
-		musician: 'Oscar Peterson',
+		musician: 'Zscar Peterson',
 		album: 'Bossa Nova',
 		year: '1978',
 		song: 'When I was young',

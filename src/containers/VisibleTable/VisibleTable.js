@@ -61,8 +61,8 @@ const mapDispatchToProps = dispatch => {
 		fetchTableData: () => {
 			dispatch(fetchTableData());
 		},
-		selectSort: () => {
-			dispatch(selectSort());
+		selectSort: (sortConfig) => {
+			dispatch(selectSort(sortConfig));
 		}
 	}
 };

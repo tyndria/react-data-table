@@ -5,7 +5,8 @@ import {
 	SELECT_FILTERS,
 	RECEIVE_PAGINATION,
 	SELECT_PAGINATION,
-	SELECT_SORT
+	SELECT_SORT,
+	RECEIVE_MAX_PAGE_NUMBER
 } from '../actions/constants';
 
 const DEFAULT_STATE = {
@@ -33,6 +34,7 @@ const DEFAULT_STATE = {
 		pageNumber: 1,
 		dataChunk: 10
 	},
+	maxPageNumber: undefined,
 	selectedSort: {
 		key: 'musician',
 		sort: 'ASC'
@@ -102,6 +104,16 @@ function selectedSortReducer(state, action) {
 	}
 }
 
+function maxPageNumberReducer(state, action) {
+	switch(action.type) {
+		case RECEIVE_MAX_PAGE_NUMBER:
+			return action.payload;
+		default:
+			return state;
+	}
+}
+
+
 export default function rootReducer(state = DEFAULT_STATE, action) {
 	return {
 		recordList: tableDataReducer(state.recordList, action),
@@ -109,6 +121,7 @@ export default function rootReducer(state = DEFAULT_STATE, action) {
 		selectedFilters: selectedFiltersReducer(state.selectedFilters, action),
 		pagination: paginationReduce(state.pagination, action),
 		selectedPagination: selectedPaginationReduce(state.selectedPagination, action),
-		selectedSort: selectedSortReducer(state.selectedSort, action)
+		selectedSort: selectedSortReducer(state.selectedSort, action),
+		maxPageNumber: maxPageNumberReducer(state.maxPageNumber, action)
 	};
 }

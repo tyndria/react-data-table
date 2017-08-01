@@ -42,7 +42,8 @@ class Pagination extends Component {
 				<span className="navigation-container">
 					<button disabled={this.props.selectedPagination.pageNumber === 1}
 							onClick={this.handlePrevious}>Previous</button>
-					<button
+					<button disabled={this.props.maxPageNumber &&
+					this.props.maxPageNumber <= this.props.selectedPagination.pageNumber}
 							onClick={this.handleNext}>Next</button>
 				</span>
 				<span className="page-chunk-container">
@@ -59,7 +60,8 @@ class Pagination extends Component {
 
 const mapStateToProps = state => ({
 	dataChunks: state.pagination.dataChunks,
-	selectedPagination: state.selectedPagination
+	selectedPagination: state.selectedPagination,
+	maxPageNumber: state.maxPageNumber
 });
 
 const mapDispatchToProps = dispatch => {
