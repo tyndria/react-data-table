@@ -4,6 +4,9 @@ import { selectPagination } from '../../actions/index';
 import './Pagination.css';
 
 class Pagination extends Component {
+
+	/* TODO: add possibility to navigate not only with next/prev buttons */
+
 	constructor(props) {
 		super(props);
 

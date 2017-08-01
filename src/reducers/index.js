@@ -41,6 +41,9 @@ const DEFAULT_STATE = {
 	}
 };
 
+/* TODO: separate all reducers into different files and combine them after */
+/* TODO: think of better state's structure */
+
 function tableDataReducer(state, action) {
 	switch (action.type) {
 		case REQUEST_DATA:
