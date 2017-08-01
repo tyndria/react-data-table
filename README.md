@@ -13,4 +13,5 @@ React & Redux
 * Add normal pagination with page numbers
 * Add loading
 * Add eslint
+* See also todos in code
 ...
