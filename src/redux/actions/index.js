@@ -1,4 +1,4 @@
-import { getData } from '../services/apiService';
+import { getData } from '../../utils/apiService';
 import {
 	RECEIVE_DATA,
 	REQUEST_DATA,
@@ -8,7 +8,7 @@ import {
 	SELECT_SORT,
 	RECEIVE_MAX_PAGE_NUMBER
 } from './constants';
-import { reduceByKey, transformData } from '../services/actionService';
+import { reduceByKey, transformData } from './actionService';
 
 function requestData() {
 	return {

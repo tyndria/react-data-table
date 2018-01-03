@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTableData, selectSort } from '../../actions/index';
-import TableList from '../../components/Table/TableList';
+import { fetchTableData, selectSort } from '../../redux/actions/index';
+import DataTable from '../../components/DataTable/DataTable';
 import Pagination from '../Pagination/Pagination';
 
 class VisibleTable extends Component {
@@ -39,11 +39,12 @@ class VisibleTable extends Component {
 	}
 
 	render() {
-		const data = this.props.recordList;
+		const props =
+			{onSortChange: this.onSortChange, data: this.props.recordList.records, headers: this.props.recordList.headers};
 		return (
 			<div className="table-container">
 				<span className="header">Playlist</span>
-				<TableList data={data} onSortChange={this.onSortChange}/>
+				<DataTable {...props}/>
 				<Pagination/>
 			</div>
 		)
