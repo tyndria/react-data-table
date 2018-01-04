@@ -18,11 +18,20 @@ const DEFAULT_STATE = {
 export default (state = DEFAULT_STATE, action) => {
 	switch(action.type) {
 		case RECEIVE_PAGINATION:
-			return action.payload;
+			return {
+				...state,
+				pagination: action.payload
+			};
 		case SELECT_PAGINATION:
-			return action.payload;
+			return {
+				...state,
+				selectedPagination: action.payload
+			};
 		case RECEIVE_MAX_PAGE_NUMBER:
-			return action.payload;
+			return {
+				...state,
+				maxPageNumber: action.payload
+			};
 		default:
 			return state;
 	}

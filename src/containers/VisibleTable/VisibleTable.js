@@ -40,7 +40,7 @@ class VisibleTable extends Component {
 
 	render() {
 		const props =
-			{onSortChange: this.onSortChange, data: this.props.recordList.records, headers: this.props.recordList.headers};
+			{onSortChange: this.onSortChange, data: this.props.records, headers: this.props.headers};
 		return (
 			<div className="table-container">
 				<span className="header">Playlist</span>
@@ -52,7 +52,8 @@ class VisibleTable extends Component {
 }
 
 const mapStateToProps = state => ({
-	recordList: state.table.recordList,
+	records: state.table.records,
+	headers: state.table.headers,
 	selectedFilters: state.filters.selectedFilters,
 	selectedPagination: state.pagination.pagination.selectedPagination,
 	selectedSort: state.table.selectedSort

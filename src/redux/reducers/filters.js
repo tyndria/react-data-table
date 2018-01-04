@@ -21,9 +21,15 @@ const DEFAULT_STATE = {
 export default (state = DEFAULT_STATE, action) => {
 	switch(action.type) {
 		case SELECT_FILTERS:
-			return action.payload;
+			return {
+				...state,
+				selectedFilters: action.payload
+			};
 		case RECEIVE_FILTERS:
-			return action.payload;
+			return {
+				...state,
+				filters: action.payload
+			};
 		default:
 			return state;
 	}

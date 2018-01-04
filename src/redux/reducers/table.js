@@ -5,11 +5,9 @@ import {
 } from '../actions/constants';
 
 const DEFAULT_STATE = {
-	recordList: {
-		isLoading: false,
-		records: [],
-		headers: ['musician', 'song', 'year', 'genre']
-	},
+	isLoading: false,
+	records: [],
+	headers: ['musician', 'song', 'year', 'genre'],
 	selectedSort: {
 		key: 'musician',
 		sort: 'ASC'
@@ -20,20 +18,19 @@ export default (state = DEFAULT_STATE, action) => {
 	switch (action.type) {
 		case REQUEST_DATA:
 			return {
-				recordList: {
-					isLoading: true,
-					records: []
-				}
+				...state,
+				isLoading: true,
+				records: []
 			};
 		case RECEIVE_DATA:
 			return {
+				...state,
 				isLoading: false,
-				records: action.payload,
-				headers: DEFAULT_STATE.recordList.headers
+				records: action.payload
 			};
 		case SELECT_SORT:
 			return action.payload;
 		default:
 			return state;
 	}
-}; 
+};
