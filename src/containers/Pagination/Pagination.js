@@ -63,9 +63,9 @@ class Pagination extends Component {
 }
 
 const mapStateToProps = state => ({
-	dataChunks: state.pagination.dataChunks,
-	selectedPagination: state.selectedPagination,
-	maxPageNumber: state.maxPageNumber
+	dataChunks: state.pagination.pagination.dataChunks,
+	selectedPagination: state.pagination.selectedPagination,
+	maxPageNumber: state.pagination.maxPageNumber
 });
 
 const mapDispatchToProps = dispatch => {

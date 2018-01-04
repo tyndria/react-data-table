@@ -69,10 +69,10 @@ class FilterPanel extends Component {
 }
 
 const mapStateToProps = state => ({
-	filters: state.filters,
-	selectedFilters: state.selectedFilters,
-	headers: state.recordList.headers,
-	isLoading: state.recordList.isLoading
+	filters: state.filters.filters,
+	selectedFilters: state.filters.selectedFilters,
+	headers: state.table.recordList.headers,
+	isLoading: state.table.recordList.isLoading
 });
 
 const mapDispatchToProps = dispatch => {

@@ -52,10 +52,10 @@ class VisibleTable extends Component {
 }
 
 const mapStateToProps = state => ({
-	recordList: state.recordList,
-	selectedFilters: state.selectedFilters,
-	selectedPagination: state.selectedPagination,
-	selectedSort: state.selectedSort
+	recordList: state.table.recordList,
+	selectedFilters: state.filters.selectedFilters,
+	selectedPagination: state.pagination.pagination.selectedPagination,
+	selectedSort: state.table.selectedSort
 });
 
 const mapDispatchToProps = dispatch => {

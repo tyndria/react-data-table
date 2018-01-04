@@ -68,7 +68,7 @@ export function fetchTableData() {
 			dispatch(receiveFilters(filters));
 
 			const {selectedFilters, selectedPagination, selectedSort} = getState();
-			const dataConfig= transformData(data, selectedFilters, selectedPagination, selectedSort);
+			const dataConfig = transformData(data, selectedFilters, selectedPagination, selectedSort);
 
 			dispatch(receiveMaxPageNumber(dataConfig.maxPageNumber));
 			dispatch(receiveData(dataConfig.data));
