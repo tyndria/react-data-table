@@ -1,14 +1,21 @@
+import { reduceByKey, transformData } from '../actionService';
+import { receiveFilters } from './filters';
+import { receiveMaxPageNumber } from './pagination';
 import { getData } from '../../utils/apiService';
-import {
-	RECEIVE_DATA,
-	REQUEST_DATA,
-	RECEIVE_FILTERS,
-	SELECT_FILTERS,
-	SELECT_PAGINATION,
-	SELECT_SORT,
-	RECEIVE_MAX_PAGE_NUMBER
-} from './constants';
-import { reduceByKey, transformData } from './actionService';
+
+export const REQUEST_DATA = 'REQUEST_DATA';
+export const RECEIVE_DATA = 'RECEIVE_DATA';
+export const SELECT_SORT = 'SELECT_SORT';
+
+const DEFAULT_STATE = {
+	isLoading: false,
+	records: [],
+	headers: ['musician', 'song', 'year', 'genre'],
+	selectedSort: {
+		key: 'musician',
+		sort: 'ASC'
+	}
+};
 
 function requestData() {
 	return {
@@ -19,34 +26,6 @@ function requestData() {
 function receiveData(data) {
 	return {
 		type: RECEIVE_DATA,
-		payload: data
-	}
-}
-
-function receiveFilters(data) {
-	return  {
-		type: RECEIVE_FILTERS,
-		payload: data
-	}
-}
-
-export function selectFilters(data) {
-	return  {
-		type: SELECT_FILTERS,
-		payload: data
-	}
-}
-
-export function receiveMaxPageNumber(data) {
-	return {
-		type: RECEIVE_MAX_PAGE_NUMBER,
-		payload: data
-	}
-}
-
-export function selectPagination(data) {
-	return {
-		type: SELECT_PAGINATION,
 		payload: data
 	}
 }
@@ -77,3 +56,25 @@ export function fetchTableData() {
 		});
 	}
 }
+
+
+export default (state = DEFAULT_STATE, action) => {
+	switch (action.type) {
+		case REQUEST_DATA:
+			return {
+				...state,
+				isLoading: true,
+				records: []
+			};
+		case RECEIVE_DATA:
+			return {
+				...state,
+				isLoading: false,
+				records: action.payload
+			};
+		case SELECT_SORT:
+			return action.payload;
+		default:
+			return state;
+	}
+};

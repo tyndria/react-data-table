@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectFilters } from '../../redux/actions/index';
+import { selectFilters } from '../../redux/ducks/filters';
 import './FilterPanel.css';
 import Select from '../../components/Select/Select';
 

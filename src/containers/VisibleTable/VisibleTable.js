@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fetchTableData, selectSort } from '../../redux/actions/index';
+import { fetchTableData, selectSort } from '../../redux/ducks/table';
 import DataTable from '../../components/DataTable/DataTable';
 import Pagination from '../Pagination/Pagination';
 

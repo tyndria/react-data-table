@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectPagination } from '../../redux/actions/index';
+import { selectPagination } from '../../redux/ducks/pagination';
 import './Pagination.css';
 
 class Pagination extends Component {

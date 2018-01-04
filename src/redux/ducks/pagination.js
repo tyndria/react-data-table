@@ -1,8 +1,6 @@
-import {
-	RECEIVE_PAGINATION,
-	SELECT_PAGINATION,
-	RECEIVE_MAX_PAGE_NUMBER
-} from '../actions/constants';
+export const RECEIVE_PAGINATION = 'RECEIVE_PAGINATION';
+export const SELECT_PAGINATION = 'SELECT_PAGINATION';
+export const RECEIVE_MAX_PAGE_NUMBER = 'RECEIVE_MAX_PAGE_NUMBER';
 
 const DEFAULT_STATE = {
 	pagination: {
@@ -14,6 +12,20 @@ const DEFAULT_STATE = {
 	},
 	maxPageNumber: undefined
 };
+
+export function receiveMaxPageNumber(data) {
+	return {
+		type: RECEIVE_MAX_PAGE_NUMBER,
+		payload: data
+	}
+}
+
+export function selectPagination(data) {
+	return {
+		type: SELECT_PAGINATION,
+		payload: data
+	}
+}
 
 export default (state = DEFAULT_STATE, action) => {
 	switch(action.type) {

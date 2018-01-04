@@ -1,7 +1,5 @@
-import {
-	RECEIVE_FILTERS,
-	SELECT_FILTERS
-} from '../actions/constants';
+export const RECEIVE_FILTERS = 'RECEIVE_FILTERS';
+export const SELECT_FILTERS = 'SELECT_FILTERS';
 
 const DEFAULT_STATE = {
 	filters: {
@@ -17,6 +15,20 @@ const DEFAULT_STATE = {
 		album: ''
 	}
 };
+
+export function receiveFilters(data) {
+	return  {
+		type: RECEIVE_FILTERS,
+		payload: data
+	}
+}
+
+export function selectFilters(data) {
+	return  {
+		type: SELECT_FILTERS,
+		payload: data
+	}
+}
 
 export default (state = DEFAULT_STATE, action) => {
 	switch(action.type) {
