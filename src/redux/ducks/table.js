@@ -30,11 +30,11 @@ function receiveData(data) {
 	}
 }
 
-export function selectSort(data) {
-	return {
-		type: SELECT_SORT,
-		payload: data
-	}
+export function selectSort(config) {
+	return (dispatch, getState) => {
+		dispatch({type: SELECT_SORT, payload: config});
+		dispatch(fetchTableData());
+	};
 }
 
 export function fetchTableData() {
@@ -49,7 +49,7 @@ export function fetchTableData() {
 			dispatch(receiveFilters(filters));
 
 			const dataConfig = transformData(data,
-				state.filters.selectedFilters, state.pagination.selectedPagination, state.table.selectedSort);
+				state.filters.selectedFilters, state.pagination, state.table.selectedSort);
 
 			dispatch(receiveMaxPageNumber(dataConfig.maxPageNumber));
 			dispatch(receiveData(dataConfig.data));
@@ -73,7 +73,10 @@ export default (state = DEFAULT_STATE, action) => {
 				records: action.payload
 			};
 		case SELECT_SORT:
-			return action.payload;
+			return {
+				...state,
+				selectedSort: action.payload
+			};
 		default:
 			return state;
 	}

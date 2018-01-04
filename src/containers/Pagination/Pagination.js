@@ -1,42 +1,27 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectPagination } from '../../redux/ducks/pagination';
+import {NEXT_PAGE, PREV_PAGE, changeDataChunk} from '../../redux/ducks/pagination';
 import './Pagination.css';
 
 class Pagination extends Component {
-
-	/* TODO: add possibility to navigate not only with next/prev buttons */
-
 	constructor(props) {
 		super(props);
 
-		this.state = {
-			dataChunk: 10
-		};
 		this.handleNext = this.handleNext.bind(this);
 		this.handlePrevious = this.handlePrevious.bind(this);
 		this.handleDataChunk = this.handleDataChunk.bind(this);
 	}
 
 	handleNext() {
-		this.props.selectPagination({
-			pageNumber: this.props.selectedPagination.pageNumber + 1,
-			dataChunk: this.props.selectedPagination.dataChunk
-		})
+		this.props.nextPage();
 	}
 
 	handlePrevious() {
-		this.props.selectPagination({
-			pageNumber: this.props.selectedPagination.pageNumber - 1,
-			dataChunk: this.props.selectedPagination.dataChunk
-		})
+		this.props.prevPage();
 	}
 
 	handleDataChunk(event) {
-		this.props.selectPagination({
-			pageNumber: this.props.selectedPagination.pageNumber,
-			dataChunk: +event.target.value
-		})
+		this.props.changeChunk(+event.target.value);
 	}
 
 	render() {
@@ -44,10 +29,10 @@ class Pagination extends Component {
 		return(
 			<div className="pagination">
 				<span className="navigation-container">
-					<button disabled={this.props.selectedPagination.pageNumber === 1}
+					<button disabled={this.props.pageNumber === 1}
 							onClick={this.handlePrevious}>Previous</button>
 					<button disabled={this.props.maxPageNumber &&
-					this.props.maxPageNumber <= this.props.selectedPagination.pageNumber}
+					this.props.maxPageNumber <= this.props.pageNumber}
 							onClick={this.handleNext}>Next</button>
 				</span>
 				<span className="page-chunk-container">
@@ -64,15 +49,17 @@ class Pagination extends Component {
 
 const mapStateToProps = state => ({
 	dataChunks: state.pagination.pagination.dataChunks,
-	selectedPagination: state.pagination.selectedPagination,
+	pageNumber: state.pagination.pageNumber,
 	maxPageNumber: state.pagination.maxPageNumber
 });
 
 const mapDispatchToProps = dispatch => {
 	return {
-		selectPagination: (paginationConfig) => {
-			dispatch(selectPagination(paginationConfig));
-		}
+		changeChunk: (chunk) => {
+			dispatch(changeDataChunk(chunk));
+		},
+		nextPage: () => dispatch({type: NEXT_PAGE}),
+		prevPage: () => dispatch({type: PREV_PAGE}),
 	}
 };
 

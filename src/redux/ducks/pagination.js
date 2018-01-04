@@ -1,15 +1,14 @@
-export const RECEIVE_PAGINATION = 'RECEIVE_PAGINATION';
-export const SELECT_PAGINATION = 'SELECT_PAGINATION';
 export const RECEIVE_MAX_PAGE_NUMBER = 'RECEIVE_MAX_PAGE_NUMBER';
+export const NEXT_PAGE = 'NEXT_PAGE';
+export const PREV_PAGE = 'PREV_PAGE';
+export const CHANGE_DATA_CHUNK = 'CHANGE_DATA_CHUNK';
 
 const DEFAULT_STATE = {
 	pagination: {
 		dataChunks: [10, 20, 50]
 	},
-	selectedPagination: {
-		pageNumber: 1,
-		dataChunk: 10
-	},
+	dataChunk: 10,
+	pageNumber: 1,
 	maxPageNumber: undefined
 };
 
@@ -20,24 +19,29 @@ export function receiveMaxPageNumber(data) {
 	}
 }
 
-export function selectPagination(data) {
+export function changeDataChunk(chunk) {
 	return {
-		type: SELECT_PAGINATION,
-		payload: data
+		type: CHANGE_DATA_CHUNK,
+		payload: chunk
 	}
 }
 
 export default (state = DEFAULT_STATE, action) => {
 	switch(action.type) {
-		case RECEIVE_PAGINATION:
+		case NEXT_PAGE:
 			return {
 				...state,
-				pagination: action.payload
+				pageNumber : state.pageNumber + 1,
 			};
-		case SELECT_PAGINATION:
+		case PREV_PAGE:
 			return {
 				...state,
-				selectedPagination: action.payload
+				pageNumber: state.pageNumber - 1
+			};
+		case CHANGE_DATA_CHUNK:
+			return {
+				...state,
+				dataChunk: action.payload
 			};
 		case RECEIVE_MAX_PAGE_NUMBER:
 			return {

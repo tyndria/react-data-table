@@ -18,23 +18,24 @@ class VisibleTable extends Component {
 		const currentSelectedFilters = this.props.selectedFilters;
 		const nextSelectedFilters = nextProps.selectedFilters;
 
-		const currentSelectedPagination = this.props.selectedPagination;
-		const nextSelectedPagination = nextProps.selectedPagination;
-
-		const currentSelectedSort = this.props.selectedSort;
-		const nextSelectedSort = nextProps.selectedSort;
+		const currentPage = this.props.pageNumber;
+		const nextPage = nextProps.pageNumber;
+		const currentDataChunk = this.props.dataChunk;
+		const nextDataChunk = nextProps.dataChunk;
 
 		if (currentSelectedFilters !== nextSelectedFilters
-		|| currentSelectedPagination !== nextSelectedPagination
-		|| currentSelectedSort !== nextSelectedSort) {
+			|| currentPage !== nextPage || currentDataChunk !== nextDataChunk) {
 			this.props.fetchTableData();
 		}
 	}
 
+	/* TODO: move setting sort field to reducer */
 	onSortChange(event) {
 		this.props.selectSort({
 			key: event.currentTarget.value,
-			sort: event.currentTarget.value === this.props.selectedSort.key ? 'DESC' : 'ASC'
+			sort: event.currentTarget.value === this.props.selectedSort.key ?
+				(this.props.selectedSort.sort === 'DESC' ? 'ASC' : 'DESC')
+				: 'ASC'
 		});
 	}
 
@@ -54,8 +55,9 @@ class VisibleTable extends Component {
 const mapStateToProps = state => ({
 	records: state.table.records,
 	headers: state.table.headers,
+	pageNumber: state.pagination.pageNumber,
+	dataChunk: state.pagination.dataChunk,
 	selectedFilters: state.filters.selectedFilters,
-	selectedPagination: state.pagination.pagination.selectedPagination,
 	selectedSort: state.table.selectedSort
 });
 
