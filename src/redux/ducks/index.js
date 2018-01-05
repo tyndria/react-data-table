@@ -4,9 +4,9 @@ import filtersReducer from './filters';
 import tableReducer from './table';
 
 const rootReducer = combineReducers({
-	table: tableReducer,
-	pagination: paginationReducer,
-	filters: filtersReducer
+	tableState: tableReducer,
+	paginationState: paginationReducer,
+	filtersState: filtersReducer
 });
 
 export default rootReducer;
