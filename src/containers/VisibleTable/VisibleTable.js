@@ -29,13 +29,9 @@ class VisibleTable extends Component {
 		}
 	}
 
-	/* TODO: move setting sort field to reducer */
 	onSortChange(event) {
 		this.props.selectSort({
-			key: event.currentTarget.value,
-			sort: event.currentTarget.value === this.props.selectedSort.key ?
-				(this.props.selectedSort.sort === 'DESC' ? 'ASC' : 'DESC')
-				: 'ASC'
+			key: event.currentTarget.value
 		});
 	}
 
@@ -63,12 +59,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
 	return {
-		fetchTableData: () => {
-			dispatch(fetchTableData());
-		},
-		selectSort: (sortConfig) => {
-			dispatch(selectSort(sortConfig));
-		}
+		fetchTableData: () => dispatch(fetchTableData()),
+		selectSort: (sortConfig) => dispatch(selectSort(sortConfig))
 	}
 };
 

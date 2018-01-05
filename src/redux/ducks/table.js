@@ -31,7 +31,7 @@ function receiveData(data) {
 }
 
 export function selectSort(config) {
-	return (dispatch, getState) => {
+	return (dispatch) => {
 		dispatch({type: SELECT_SORT, payload: config});
 		dispatch(fetchTableData());
 	};
@@ -57,7 +57,7 @@ export function fetchTableData() {
 	}
 }
 
-
+/* TODO: perhaps, we need to move choosing sort order to another reducer... ? Like use composition */
 export default (state = DEFAULT_STATE, action) => {
 	switch (action.type) {
 		case REQUEST_DATA:
@@ -75,7 +75,12 @@ export default (state = DEFAULT_STATE, action) => {
 		case SELECT_SORT:
 			return {
 				...state,
-				selectedSort: action.payload
+				selectedSort: {
+					key: action.payload.key,
+					sort: state.selectedSort.key === action.payload.key ?
+						(state.selectedSort.sort === 'DESC' ? 'ASC' : 'DESC')
+						: 'ASC'
+				}
 			};
 		default:
 			return state;

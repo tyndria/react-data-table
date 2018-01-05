@@ -77,9 +77,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
 	return {
-		selectFilters: (filtersConfig) => {
-			dispatch(selectFilters(filtersConfig));
-		}
+		selectFilters: (filtersConfig) => dispatch(selectFilters(filtersConfig))
 	}
 };
 

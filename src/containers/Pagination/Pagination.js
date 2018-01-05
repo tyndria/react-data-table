@@ -55,9 +55,7 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
 	return {
-		changeChunk: (chunk) => {
-			dispatch(changeDataChunk(chunk));
-		},
+		changeChunk: (chunk) => dispatch(changeDataChunk(chunk)),
 		nextPage: () => dispatch({type: NEXT_PAGE}),
 		prevPage: () => dispatch({type: PREV_PAGE}),
 	}
