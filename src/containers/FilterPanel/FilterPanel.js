@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { selectFilters } from '../../redux/ducks/filters';
+import { setFilters, RESET_FILTERS } from '../../redux/ducks/filters';
 import './FilterPanel.css';
 import Select from '../../components/Select/Select';
 
@@ -23,15 +23,7 @@ class FilterPanel extends Component {
 	}
 
 	handleReset(event) {
-		this.setState(() => {
-			this.state = {
-				song: '',
-				year: '',
-				musician: '',
-				genre: ''
-			};
-			this.props.selectFilters(this.state);
-		});
+		this.props.resetFilters();
 		event.preventDefault();
 	}
 
@@ -77,7 +69,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => {
 	return {
-		selectFilters: (filtersConfig) => dispatch(selectFilters(filtersConfig))
+		selectFilters: (filtersConfig) => dispatch(setFilters(filtersConfig)),
+		resetFilters: () => dispatch({type: RESET_FILTERS})
 	}
 };
 

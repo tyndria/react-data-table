@@ -1,5 +1,6 @@
 export const RECEIVE_FILTERS = 'RECEIVE_FILTERS';
-export const SELECT_FILTERS = 'SELECT_FILTERS';
+export const SET_FILTERS = 'SET_FILTERS';
+export const RESET_FILTERS = 'RESET_FILTERS';
 
 const DEFAULT_STATE = {
 	filters: {
@@ -23,16 +24,16 @@ export function receiveFilters(data) {
 	}
 }
 
-export function selectFilters(data) {
+export function setFilters(data) {
 	return  {
-		type: SELECT_FILTERS,
+		type: SET_FILTERS,
 		payload: data
 	}
 }
 
 export default (state = DEFAULT_STATE, action) => {
 	switch(action.type) {
-		case SELECT_FILTERS:
+		case SET_FILTERS:
 			return {
 				...state,
 				selectedFilters: action.payload
@@ -41,6 +42,11 @@ export default (state = DEFAULT_STATE, action) => {
 			return {
 				...state,
 				filters: action.payload
+			};
+		case RESET_FILTERS:
+			return {
+				...state,
+				selectedFilters: DEFAULT_STATE.selectedFilters
 			};
 		default:
 			return state;
