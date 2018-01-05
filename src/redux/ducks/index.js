@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
-import paginationReducer from './pagination';
-import filtersReducer from './filters';
-import tableReducer from './table';
+import pagination from './pagination';
+import filters from './filters';
+import table from './table';
 
 const rootReducer = combineReducers({
-	tableState: tableReducer,
-	paginationState: paginationReducer,
-	filtersState: filtersReducer
+	table,
+	pagination,
+	filters
 });
 
 export default rootReducer;

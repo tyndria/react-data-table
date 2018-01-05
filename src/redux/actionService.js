@@ -39,12 +39,12 @@ export function transformData(data, filters, pagination, sort) {
 			return true;
 		});
 
-		maxPageNumber  = Math.ceil(newData.length / pagination.dataChunk);
+		maxPageNumber  = Math.ceil(newData.length / pagination.selectedDataChunk);
 	}
 
 	if (pagination) {
-		const startIndex = (pagination.pageNumber - 1) * pagination.dataChunk;
-		const endIndex = startIndex  + pagination.dataChunk;
+		const startIndex = (pagination.pageNumber - 1) * pagination.selectedDataChunk;
+		const endIndex = startIndex  + pagination.selectedDataChunk;
 		newData = newData.slice(startIndex, Math.min(newData.length, endIndex));
 	}
 

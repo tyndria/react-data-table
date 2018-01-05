@@ -45,11 +45,11 @@ export function fetchTableData() {
 
 			dispatch(receiveData(data));
 
-			const filters = reduceByKey(state.tableState.headers, data);
+			const filters = reduceByKey(state.table.headers, data);
 			dispatch(receiveFilters(filters));
 
 			const dataConfig = transformData(data,
-				state.filtersState.selectedFilters, state.paginationState, state.tableState.selectedSort);
+				state.filters.selectedFilters, state.pagination, state.table.selectedSort);
 
 			dispatch(receiveMaxPageNumber(dataConfig.maxPageNumber));
 			dispatch(receiveData(dataConfig.data));

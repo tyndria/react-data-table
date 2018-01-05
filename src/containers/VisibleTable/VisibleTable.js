@@ -20,8 +20,8 @@ class VisibleTable extends Component {
 
 		const currentPage = this.props.pageNumber;
 		const nextPage = nextProps.pageNumber;
-		const currentDataChunk = this.props.dataChunk;
-		const nextDataChunk = nextProps.dataChunk;
+		const currentDataChunk = this.props.selectedDataChunk;
+		const nextDataChunk = nextProps.selectedDataChunk;
 
 		if (currentSelectedFilters !== nextSelectedFilters
 			|| currentPage !== nextPage || currentDataChunk !== nextDataChunk) {
@@ -49,12 +49,12 @@ class VisibleTable extends Component {
 }
 
 const mapStateToProps = state => ({
-	records: state.tableState.records,
-	headers: state.tableState.headers,
-	pageNumber: state.paginationState.pageNumber,
-	dataChunk: state.paginationState.dataChunk,
-	selectedFilters: state.filtersState.selectedFilters,
-	selectedSort: state.tableState.selectedSort
+	records: state.table.records,
+	headers: state.table.headers,
+	pageNumber: state.pagination.pageNumber,
+	selectedDataChunk: state.pagination.selectedDataChunk,
+	selectedFilters: state.filters.selectedFilters,
+	selectedSort: state.table.selectedSort
 });
 
 const mapDispatchToProps = dispatch => {
