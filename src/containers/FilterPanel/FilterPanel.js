@@ -67,13 +67,10 @@ const mapStateToProps = state => ({
 	isLoading: state.table.isLoading
 });
 
-const mapDispatchToProps = dispatch => ({
-	selectFilters(filtersConfig){
-		dispatch(setFilters(filtersConfig))
-	},
-	resetFilters(){
-		dispatch(resetFilters())
+export default connect(
+	mapStateToProps,
+	{	/* This is the shorthand notation for mapDispatchToProps  */
+		selectFilters: setFilters,
+		resetFilters: resetFilters
 	}
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(FilterPanel);
+)(FilterPanel);
