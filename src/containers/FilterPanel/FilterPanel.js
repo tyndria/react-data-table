@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { setFilters, RESET_FILTERS } from '../../redux/ducks/filters';
+import { setFilters, resetFilters } from '../../redux/ducks/filters';
 import './FilterPanel.css';
 import Select from '../../components/Select/Select';
 
@@ -67,11 +67,13 @@ const mapStateToProps = state => ({
 	isLoading: state.table.isLoading
 });
 
-const mapDispatchToProps = dispatch => {
-	return {
-		selectFilters: (filtersConfig) => dispatch(setFilters(filtersConfig)),
-		resetFilters: () => dispatch({type: RESET_FILTERS})
+const mapDispatchToProps = dispatch => ({
+	selectFilters(filtersConfig){
+		dispatch(setFilters(filtersConfig))
+	},
+	resetFilters(){
+		dispatch(resetFilters())
 	}
-};
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(FilterPanel);

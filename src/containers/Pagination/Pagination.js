@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {NEXT_PAGE, PREV_PAGE, changeDataChunk} from '../../redux/ducks/pagination';
+import {nextPage, prevPage, changeDataChunk} from '../../redux/ducks/pagination';
 import './Pagination.css';
 
 class Pagination extends Component {
@@ -53,12 +53,10 @@ const mapStateToProps = state => ({
 	maxPageNumber: state.pagination.maxPageNumber
 });
 
-const mapDispatchToProps = dispatch => {
-	return {
-		changeChunk: (chunk) => dispatch(changeDataChunk(chunk)),
-		nextPage: () => dispatch({type: NEXT_PAGE}),
-		prevPage: () => dispatch({type: PREV_PAGE}),
-	}
-};
+const mapDispatchToProps = dispatch => ({
+	changeChunk: (chunk) => dispatch(changeDataChunk(chunk)),
+	nextPage: () => nextPage(),
+	prevPage: () => prevPage(),
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(Pagination);

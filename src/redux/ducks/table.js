@@ -17,25 +17,21 @@ const DEFAULT_STATE = {
 	}
 };
 
-function requestData() {
-	return {
-		type: REQUEST_DATA
-	}
-}
+export const requestData = () => ({
+	type: REQUEST_DATA
+});
 
-function receiveData(data) {
-	return {
-		type: RECEIVE_DATA,
-		payload: data
-	}
-}
+export const receiveData = (data) => ({
+	type: RECEIVE_DATA,
+	payload: data
+});
 
-export function selectSort(config) {
+export const selectSort = (config) => {
 	return (dispatch) => {
 		dispatch({type: SELECT_SORT, payload: config});
 		dispatch(fetchTableData());
 	};
-}
+};
 
 export function fetchTableData() {
 	return (dispatch, getState) => {

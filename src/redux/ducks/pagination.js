@@ -10,19 +10,23 @@ const DEFAULT_STATE = {
 	maxPageNumber: undefined
 };
 
-export function receiveMaxPageNumber(data) {
-	return {
-		type: RECEIVE_MAX_PAGE_NUMBER,
-		payload: data
-	}
-}
+export const receiveMaxPageNumber = (data) => ({
+	type: RECEIVE_MAX_PAGE_NUMBER,
+	payload: data
+});
 
-export function changeDataChunk(chunk) {
-	return {
-		type: CHANGE_DATA_CHUNK,
-		payload: chunk
-	}
-}
+export const changeDataChunk = (chunk) => ({
+	type: CHANGE_DATA_CHUNK,
+	payload: chunk
+});
+
+export const prevPage = () => ({
+	type: PREV_PAGE
+});
+
+export const nextPage = () => ({
+	type: PREV_PAGE
+});
 
 export default (state = DEFAULT_STATE, action) => {
 	switch(action.type) {

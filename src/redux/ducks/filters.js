@@ -17,19 +17,19 @@ const DEFAULT_STATE = {
 	}
 };
 
-export function receiveFilters(data) {
-	return  {
-		type: RECEIVE_FILTERS,
-		payload: data
-	}
-}
+export const receiveFilters = (data) => ({
+	type: RECEIVE_FILTERS,
+	payload: data
+});
 
-export function setFilters(data) {
-	return  {
-		type: SET_FILTERS,
-		payload: data
-	}
-}
+export const setFilters = (data) => ({
+	type: SET_FILTERS,
+	payload: data
+});
+
+export const resetFilters = () => ({
+	type: RESET_FILTERS
+});
 
 export default (state = DEFAULT_STATE, action) => {
 	switch(action.type) {

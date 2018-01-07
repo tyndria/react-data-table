@@ -57,11 +57,9 @@ const mapStateToProps = state => ({
 	selectedSort: state.table.selectedSort
 });
 
-const mapDispatchToProps = dispatch => {
-	return {
-		fetchTableData: () => dispatch(fetchTableData()),
-		selectSort: (sortConfig) => dispatch(selectSort(sortConfig))
-	}
-};
+const mapDispatchToProps = dispatch => ({
+	fetchTableData: () => dispatch(fetchTableData()),
+	selectSort: (sortConfig) => dispatch(selectSort(sortConfig))
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(VisibleTable);
