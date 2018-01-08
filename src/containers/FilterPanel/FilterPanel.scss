@@ -5,10 +5,11 @@
   width: 25%;
 
   form {
-    background-color: $panel-background-color;
     display: flex;
     flex-direction: column;
     padding: 2rem 1rem;
+    border: 1px solid lightgrey;
+    border-radius: 5px;
   }
 
   label {

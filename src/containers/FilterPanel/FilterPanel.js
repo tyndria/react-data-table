@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { setFilters, resetFilters } from '../../redux/ducks/filters';
 import './FilterPanel.css';
+import Button from '../../components/Button/Button';
 import Select from '../../components/Select/Select';
 
 class FilterPanel extends Component {
@@ -51,8 +52,8 @@ class FilterPanel extends Component {
 						})
 					}
 					<div className="action-buttons">
-						<input type="reset" value="Reset" />
-						<input type="submit" value="Submit" />
+						<Button type="reset">Reset</Button>
+						<Button type="submit">Submit</Button>
 					</div>
 				</form>
 			</div>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {nextPage, prevPage, changeDataChunk} from '../../redux/ducks/pagination';
+import Button from '../../components/Button/Button';
 import './Pagination.css';
 
 class Pagination extends Component {
@@ -29,16 +30,19 @@ class Pagination extends Component {
 		return(
 			<div className="pagination">
 				<span className="navigation-container">
-					<button disabled={this.props.pageNumber === 1}
-							onClick={this.handlePrevious}>Previous</button>
-					<button disabled={this.props.maxPageNumber &&
+					<Button disabled={this.props.pageNumber === 1}
+							onClick={this.handlePrevious}>Previous</Button>
+					<Button disabled={this.props.maxPageNumber &&
 					this.props.maxPageNumber <= this.props.pageNumber}
-							onClick={this.handleNext}>Next</button>
+							onClick={this.handleNext}>Next</Button>
 				</span>
 				<span className="page-chunk-container">
 					{
 						dataChunks.map((chunk, index) => {
-							return (<button key={index} value={chunk} onClick={this.handleDataChunk}>{chunk}</button>)
+							return (<Button className="custom-btn"
+											key={index}
+											value={chunk}
+											onClick={this.handleDataChunk}>{chunk}</Button>)
 						})
 					}
 				</span>

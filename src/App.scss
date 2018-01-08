@@ -4,11 +4,12 @@
   display: flex;
   height: calc(100% - 4rem);
   justify-content: center;
-  margin: 2rem;
+  margin: 5rem 10rem;
 }
 
 .table-container {
-  background-color: $panel-background-color;
+  border: 1px solid lightgrey;
+  border-radius: 5px;
   flex: 1;
   padding: 2rem;
 }

@@ -1,6 +1,7 @@
 import React from 'react';
 import Row from './Row/Row';
 import PropTypes from 'prop-types';
+import Button from '../Button/Button';
 import './DataTable.css';
 
 const DataTable = ({data, headers, onSortChange}) => (
@@ -10,8 +11,8 @@ const DataTable = ({data, headers, onSortChange}) => (
 			<tr>
 				{
 					headers && headers.map((header, index) =>
-						(<th key={index}>{header} <button onClick={onSortChange} value={header}>
-							<i className="fa fa-sort"/></button></th>))
+						(<th key={index}>{header} <Button onClick={onSortChange} value={header}>
+							<i className="fa fa-sort"/></Button></th>))
 				}
 			</tr>
 			{

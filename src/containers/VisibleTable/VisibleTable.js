@@ -51,6 +51,7 @@ class VisibleTable extends Component {
 const mapStateToProps = state => ({
 	records: state.table.records,
 	headers: state.table.headers,
+	isLoading: state.table.isLoading,
 	pageNumber: state.pagination.pageNumber,
 	selectedDataChunk: state.pagination.selectedDataChunk,
 	selectedFilters: state.filters.selectedFilters,
