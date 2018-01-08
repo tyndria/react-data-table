@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import classNames from 'classnames';
 import './Button.css';
 
-const Button = ({ children, ...otherProps }) => (
-	<button className="custom-btn" {...otherProps}>{children}
+const Button = ({ children, className, disabled, ...otherProps }) => (
+	<button className={classNames('custom-btn', className, { 'disabled': disabled })} {...otherProps}>{children}
 	</button>
 );
 

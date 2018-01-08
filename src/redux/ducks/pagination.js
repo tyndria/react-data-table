@@ -25,7 +25,7 @@ export const prevPage = () => ({
 });
 
 export const nextPage = () => ({
-	type: PREV_PAGE
+	type: NEXT_PAGE
 });
 
 export default (state = DEFAULT_STATE, action) => {

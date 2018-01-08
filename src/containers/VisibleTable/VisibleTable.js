@@ -37,7 +37,7 @@ class VisibleTable extends Component {
 
 	render() {
 		const props =
-			{onSortChange: this.onSortChange, data: this.props.records, headers: this.props.headers};
+			{onSortChange: this.onSortChange, data: this.props.records, headers: this.props.headers, isLoading: this.props.isLoading};
 		return (
 			<div className="table-container">
 				<span className="header">Playlist</span>

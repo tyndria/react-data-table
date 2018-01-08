@@ -59,8 +59,8 @@ const mapStateToProps = state => ({
 
 const mapDispatchToProps = dispatch => ({
 	changeChunk: (chunk) => dispatch(changeDataChunk(chunk)),
-	nextPage: () => nextPage(),
-	prevPage: () => prevPage(),
+	nextPage: () => dispatch(nextPage()),
+	prevPage: () => dispatch(prevPage()),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Pagination);

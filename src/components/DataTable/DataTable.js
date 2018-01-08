@@ -2,28 +2,32 @@ import React from 'react';
 import Row from './Row/Row';
 import PropTypes from 'prop-types';
 import Button from '../Button/Button';
+import ReactLoading from 'react-loading';
 import './DataTable.css';
 
-const DataTable = ({data, headers, onSortChange}) => (
-	<div>
-		<table className="table">
-			<tbody>
-			<tr>
+const DataTable = ({data, headers, onSortChange, isLoading}) => (
+	<div className="data-table">
+		{ isLoading ?
+			<ReactLoading className="data-table-loader" delay="0" type="bubbles" color=""/> :
+			<table className="table">
+				<tbody>
+				<tr>
+					{
+						headers && headers.map((header, index) =>
+							(<th key={index}>{header} <Button onClick={onSortChange} value={header}>
+								<i className="fa fa-sort"/></Button></th>))
+					}
+				</tr>
 				{
-					headers && headers.map((header, index) =>
-						(<th key={index}>{header} <Button onClick={onSortChange} value={header}>
-							<i className="fa fa-sort"/></Button></th>))
+					data.map((item, index) => {
+						return (
+							<Row item={item} key={index} headers={headers}/>
+						);
+					})
 				}
-			</tr>
-			{
-				data.map((item, index) => {
-					return (
-						<Row item={item} key={index} headers={headers}/>
-					);
-				})
-			}
-			</tbody>
-		</table>
+				</tbody>
+			</table>
+		}
 	</div>
 );
 

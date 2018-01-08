@@ -10,6 +10,7 @@
 
 src/components/**/*.css
 src/containers/**/*.css
+src/**/*.css
 
 # misc
 .DS_Store
